@@ -1,4 +1,4 @@
-module go-daemon
+module github.com/lei006/go-daemon
 
 go 1.21.5
 

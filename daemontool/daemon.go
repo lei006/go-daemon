@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"go-daemon/daemontool/zcli"
+	"github.com/lei006/go-daemon/daemontool/zcli"
 )
 
 type DaemonTool struct {

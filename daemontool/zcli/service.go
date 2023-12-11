@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"go-daemon/daemontool/daemon"
+	"github.com/lei006/go-daemon/daemontool/daemon"
 
 	"github.com/sohaha/zlsgo/zfile"
 	"github.com/sohaha/zlsgo/zshell"

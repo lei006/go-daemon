@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"go-daemon/daemontool"
+	"github.com/lei006/go-daemon/daemontool"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 			Run()
 		})
 	*/
-	daemonTool.Run("test_app", "desc 111测试", Run)
+	daemonTool.Run("test_app11", "desc 111测试333", Run)
 }
 
 func Run() {
