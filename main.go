@@ -15,14 +15,13 @@ import (
 func main() {
 
 	daemonTool := daemontool.DefDaemonTool
-	/*
-		daemonTool.OnInit("tet_app", "测试的...")
-		daemonTool.SetModel(false)
-		daemonTool.ServerRun(func() {
-			Run()
-		})
-	*/
-	daemonTool.Run("test_app11", "desc 111测试333", Run)
+
+	ok, _ := daemontool.RunAtBuild()
+	if ok {
+		daemonTool.Run("test_app11", "desc 111测试333", Run)
+	} else {
+		Run()
+	}
 }
 
 func Run() {
