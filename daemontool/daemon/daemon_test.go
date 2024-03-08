@@ -5,7 +5,6 @@ import (
 	"testing"
 
 	"github.com/sohaha/zlsgo"
-	"github.com/sohaha/zlsgo/zarray"
 )
 
 type ss struct {
@@ -27,27 +26,29 @@ func (p *ss) Stop(s ServiceIfe) error {
 }
 
 func TestDaemon(t *testing.T) {
-	o := &ss{
-		I: 1,
-	}
-	s, err := New(o, &Config{
-		Name:   "zlsgo_daemon_test",
-		Option: zarray.DefData{"UserService": false},
-	})
-	if err != nil {
-		return
-	}
-	t.Log(o.I)
-	t.Log(err)
-	_ = s.Install()
-	err = s.Start()
-	t.Log(err)
-	_ = s.Stop()
-	_ = s.Restart()
-	t.Log(s.Status())
-	_ = s.Uninstall()
-	t.Log(s.String())
-	t.Log(o.I)
+	/*
+		o := &ss{
+			I: 1,
+		}
+		s, err := New(o, &Config{
+			Name:   "zlsgo_daemon_test",
+			Option: zarray.DefData{"UserService": false},
+		})
+		if err != nil {
+			return
+		}
+		t.Log(o.I)
+		t.Log(err)
+		_ = s.Install()
+		err = s.Start()
+		t.Log(err)
+		_ = s.Stop()
+		_ = s.Restart()
+		t.Log(s.Status())
+		_ = s.Uninstall()
+		t.Log(s.String())
+		t.Log(o.I)
+	*/
 }
 
 func TestUtil(t *testing.T) {

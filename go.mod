@@ -3,7 +3,7 @@ module github.com/lei006/go-daemon
 go 1.21.5
 
 require (
-	github.com/sohaha/zlsgo v1.6.8
+	github.com/sohaha/zlsgo v1.7.3
 	golang.org/x/sys v0.15.0
 )
 

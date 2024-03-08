@@ -1,6 +1,7 @@
 package daemontool
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -27,5 +28,6 @@ func (this *DaemonTool) GetWordPath() string {
 }
 
 func (this *DaemonTool) Run(name string, desc string, fn func()) {
+	fmt.Println("==============>")
 	zcli.LaunchServiceRun(name, desc, fn)
 }
