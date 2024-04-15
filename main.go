@@ -18,7 +18,7 @@ func main() {
 
 	ok, _ := daemontool.RunAtBuild()
 	if ok {
-		daemonTool.Run("test_app11", "desc 111测试333", Run)
+		daemonTool.Run("test_app12", "desc 111测试333", Run)
 	} else {
 		Run()
 	}

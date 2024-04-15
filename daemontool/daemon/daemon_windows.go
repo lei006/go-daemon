@@ -279,7 +279,7 @@ func (w *windowsService) stopWait(s *mgr.Service) error {
 	if err != nil {
 		return err
 	}
-	timeDuration := time.Millisecond * 50
+	timeDuration := time.Millisecond * 500
 	timeout := time.After(getStopTimeout() + (timeDuration * 2))
 	tick := time.NewTicker(timeDuration)
 	defer tick.Stop()
@@ -309,7 +309,7 @@ func connect() (*mgr.Mgr, error) {
 }
 func getStopTimeout() time.Duration {
 	// For default and paths see https://support.microsoft.com/en-us/kb/146092
-	defaultTimeout := time.Millisecond * 20000
+	defaultTimeout := time.Millisecond * 50000
 	key, err := registry.OpenKey(registry.LOCAL_MACHINE, `SYSTEM\CurrentControlSet\Control`, registry.READ)
 	if err != nil {
 		return defaultTimeout
