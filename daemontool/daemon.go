@@ -2,7 +2,6 @@ package daemontool
 
 import (
 	"errors"
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -21,16 +20,35 @@ func init() {
 	DefDaemonTool = &DaemonTool{}
 }
 
-func (daemonTool *DaemonTool) GetWordPath() string {
-	dir, err := filepath.Abs(filepath.Dir(os.Args[0])) //返回绝对路径  filepath.Dir(os.Args[0])去除最后一个元素的路径
+func GetWordPath() (string, error) {
+
+	// 取得工作目录
+	workPath, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+		return "", err
+	}
+
+	// 获取当前执行程序的文件信息
+	exePath, err := os.Executable()
+	if err != nil {
+		return "", err
+	}
+
+	bret := strings.Contains(exePath, "go-build")
+	if bret {
+		return strings.Replace(workPath, "\\", "/", -1), nil
+	}
+
+	workPath, err = filepath.Abs(filepath.Dir(exePath)) //返回绝对路径  filepath.Dir(os.Args[0])去除最后一个元素的路径
 	if err != nil {
 		log.Fatal(err)
 	}
-	return strings.Replace(dir, "\\", "/", -1) //将\替换成/
+
+	return strings.Replace(workPath, "\\", "/", -1), nil
 }
 
 func (daemonTool *DaemonTool) Run(name string, desc string, fn func()) {
-	fmt.Println("==============>")
 	zcli.LaunchServiceRun(name, desc, fn)
 }
 
