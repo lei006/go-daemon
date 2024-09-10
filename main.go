@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/lei006/go-daemon/daemontool"
-	"github.com/sohaha/zlsgo/zlog"
+	"github.com/lei006/zlog"
 )
 
 //go:generate go env -w GO111MODULE=on
@@ -29,6 +29,7 @@ func Run() {
 
 	zlog.SetSaveFile("logs.log", true)
 	zlog.LogMaxDurationDate = 3
+	zlog.ForceConsoleColor()
 
 	for true {
 
@@ -39,7 +40,7 @@ func Run() {
 			fmt.Println("GetWordPath error:", err)
 			return
 		}
-		zlog.Debug("path", path)
+		zlog.Warn("path", path)
 
 		time.Sleep(time.Second)
 	}

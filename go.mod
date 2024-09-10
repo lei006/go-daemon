@@ -1,10 +1,11 @@
 module github.com/lei006/go-daemon
 
-go 1.21.5
+go 1.22.4
 
 require (
-	github.com/sohaha/zlsgo v1.7.3
-	golang.org/x/sys v0.15.0
+	github.com/lei006/zlog v0.0.2
+	github.com/sohaha/zlsgo v1.7.16
+	golang.org/x/sys v0.18.0
 )
 
 require (
